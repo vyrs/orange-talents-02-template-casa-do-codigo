@@ -9,8 +9,10 @@ import org.springframework.util.Assert;
 import br.com.zup.casadocodigo.model.Estado;
 import br.com.zup.casadocodigo.model.Pais;
 import br.com.zup.casadocodigo.validacao.ExistsId;
+import br.com.zup.casadocodigo.validacao.UniqueEstado;
 
 
+@UniqueEstado(domainClass = Estado.class, field1 = "nome", field2 = "paisId", message = "estado já cadastrado neste país!")
 public class EstadoRequest {
 
 	@NotBlank
